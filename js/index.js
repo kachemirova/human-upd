@@ -14,7 +14,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+startMainVideo();
 addFormListeners();
+
+function startMainVideo() {
+  const videoEl = document.getElementById('main_video');
+
+  if (videoEl) {
+    document.addEventListener('touchstart', function() {
+      autoplayVideoIfPaused('promo_video');
+    }, { once: true });
+  }
+}
+
+function autoplayVideoIfPaused(videoId) {
+  const videoEl = document.getElementById(videoId);
+
+  if (videoEl.paused) {
+    videoEl.muted = true;
+    videoEl.play();
+  }
+}
 
 function addFormListeners() {
   const formEl = document.querySelector('.main__form');
@@ -52,7 +72,6 @@ function addFormListeners() {
     inputEl.value = '';
   }
 }
-
 
 function validateEmail(value) {
   const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
