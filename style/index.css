@@ -319,6 +319,7 @@ input {
 }
 
 .main__video {
+  opacity: 1 !important;
   width: 55.55vw;
   height: 55.55vw;
   margin-left: -8.42vw;
