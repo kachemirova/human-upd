@@ -163,6 +163,7 @@ input {
 }
 
 .main__left {
+  z-index: 1;
   position: relative;
   width: 42.2vw;
 }
@@ -192,11 +193,7 @@ input {
     background-clip: text;
     background-image: url("../img/gradientt.jpg");
     background-position: 50% 0;
-    animation-name: ani;
-    animation-duration: 5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: 5s ease-in-out infinite alternate gradien-changing;
   }
 }
 
@@ -206,17 +203,13 @@ input {
     -webkit-background-clip: text;
     background-image: url("../img/gradientt.jpg");
     background-position: 50% 0;
-    animation: gradien-changing 5s linear infinite alternate;
+    animation: 5s ease-in-out infinite alternate gradien-changing;
   }
 }
 
 @keyframes gradien-changing {
-  from {
-    background-position: 50% 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
+  from { background-position: 50% 0; }
+  to { background-position: 100% 0; }
 }
 
 .main__form {
@@ -318,8 +311,33 @@ input {
   transition: background-color .15s ease-in-out;
 }
 
+.main__video_wrap {
+  position: relative;
+}
+
+.main__video_placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55.55vw;
+  height: 55.55vw;
+  margin-left: -8.42vw;
+  background-color: #09090B;
+  animation: 1s ease-in-out 1s 1 forwards fade-in-delayed;
+}
+
+@keyframes fade-in-delayed {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media only screen and (max-width: 959px) {
+  .main__video_placeholder {
+    background-color: #0B0B0D;
+  }
+}
+
 .main__video {
-  opacity: 1 !important;
   width: 55.55vw;
   height: 55.55vw;
   margin-left: -8.42vw;
@@ -390,7 +408,8 @@ input {
     text-align: center;
   }
 
-  .main__video {
+  .main__video,
+  .main__video_placeholder {
     width: 386px;
     height: 386px;
     margin: -67px 0 0;
@@ -470,7 +489,8 @@ input {
     padding: 0 9.8vw;
   }
 
-  .main__video {
+  .main__video,
+  .main__video_placeholder {
     width: 80.4vw;
     height: 80.4vw;
     margin: -14vw 0 0;
