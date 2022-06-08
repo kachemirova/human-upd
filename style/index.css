@@ -8,6 +8,25 @@
   box-sizing: border-box;
 }
 
+/* Css variables */
+@supports (padding-top: constant(safe-area-inset-top)) {
+  :root {
+    --safe-area-inset-top: constant(safe-area-inset-top);
+    --safe-area-inset-right: constant(safe-area-inset-right);
+    --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+    --safe-area-inset-left: constant(safe-area-inset-left);
+  }
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-right: env(safe-area-inset-right);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left: env(safe-area-inset-left);
+  }
+}
+
 html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: subpixel-antialiased;
@@ -158,7 +177,7 @@ input {
 .main__inner {
   display: flex;
   align-items: center;
-  padding-bottom: 4.16vw;
+  padding-bottom: calc(4.16vw + var(--safe-area-inset-bottom));
 }
 
 .main__left {
@@ -229,6 +248,7 @@ input {
   font-size: 1.39vw;
   line-height: 1.53vw;
   width: 100%;
+  height: 5.01vw;
   padding: 1.74vw 1.67vw;
   border-radius: 1.39vw;
   background: #232326;
@@ -303,6 +323,7 @@ input {
 .main__form_submit {
   font-size: 1.39vw;
   line-height: 1.53vw;
+  height: 5.01vw;
   padding: 1.74vw 1.67vw;
   color: #FFFFFF;
   border-radius: 1.39vw;
@@ -447,6 +468,7 @@ input {
   .main__form_input {
     font-size: 22px;
     line-height: 24px;
+    height: 80px;
     padding: 28px;
     border-radius: 22px;
   }
@@ -455,6 +477,7 @@ input {
     font-size: 22px;
     line-height: 24px;
     width: 100%;
+    height: 80px;
     padding: 28px;
     margin-top: 14px;
     border-radius: 22px;
@@ -508,6 +531,7 @@ input {
   .main__form_input {
     font-size: 4.67vw;
     line-height: 5.14vw;
+    height: 16.78vw;
     padding: 5.82vw;
     border-radius: 4.67vw;
   }
@@ -515,6 +539,7 @@ input {
   .main__form_submit {
     font-size: 4.67vw;
     line-height: 5.14vw;
+    height: 16.78vw;
     padding: 5.82vw;
     margin-top: 2.8vw;
     border-radius: 4.67vw;
