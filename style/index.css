@@ -110,6 +110,7 @@ input {
 }
 
 .header__mobile_menu {
+  font-size: 0;
   display: none;
 }
 
@@ -367,6 +368,8 @@ input {
   .header {
     justify-content: center;
     height: 162px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   .header__inner {
@@ -523,6 +526,13 @@ input {
     margin-top: 2.8vw;
     padding: 2.33vw;
     border-radius: 2.8vw;
+  }
+}
+
+@media (max-width: 408px) {
+  .header__mobile_menu .header__link {
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }
 
